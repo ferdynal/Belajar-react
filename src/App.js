@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from "react";
+import FoodMenu from "./components/food/food.component";
+import DrinkMenu from "./components/drink/drink.component";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+class App extends Component {
+  state = {
+    restoName: "Urang Awak"
+  };
+
+  render() {
+    return (
+      <Fragment>
+        <div className="App">
+          <h1 className="main-title">Cafe and Resto {this.state.restoName}</h1>
+          <h2>Food</h2>
+          <FoodMenu nameMenu={"Steak"} priceMenu={50000} />
+          <FoodMenu nameMenu={"Gado-gado"} priceMenu={12000} />
+          <h2>Drink</h2>
+          <DrinkMenu nameMenu={"Ice Lemon Tea"} priceMenu={10000} />
+          <DrinkMenu nameMenu={"Ice Cream Sunday"} priceMenu={18000} />
+        </div>
+      </Fragment>
+    );
+  }
 }
 
 export default App;
